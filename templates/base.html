@@ -14,14 +14,43 @@
     <!-- local css -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <!-- local css -->
-    <title>Chat</title>
+    <title>Chat | {% block title %} {% endblock %}</title>
   </head>
   <body>
     <!-- navigation -->
+    <nav class="flex items-center justify-between px-4 py-4 bg-teal-800">
+      <div>
+        <a href="{% url 'home' %}" class="text-xl text-white font-semibold"
+          >Chat App</a
+        >
+      </div>
+      <div class="flex items-center space-x-4">
+        <a
+          href="{% url 'rooms' %}"
+          class="text-white hover:text-gray-200 hover:underline"
+          >Rooms</a
+        >
+        <!-- if -->
+        {% if user.is_authenticated %}
+        <a
+          href="{% url 'logout' %}"
+          class="px-3 py-2 rounded text-white hover:text-gray-200 bg-red-400"
+          >Logout</a
+        >
+        {% else %}
+        <a
+          href="{% url 'signup' %}"
+          class="px-3 py-2 rounded text-white hover:text-gray-200 bg-teal-600"
+          >Signup</a
+        >
+        {% endif %}
+        <!-- endif -->
+      </div>
+    </nav>
     <!-- navigation -->
 
     <!-- main body -->
-    <div class="main-body">
+    <div class="min-h-screen bg-teal-600">
       {% block body %}
       <!--  -->
       {% endblock %}

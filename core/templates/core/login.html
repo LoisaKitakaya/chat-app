@@ -1,0 +1,78 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- static -->
+{% load static %}
+<!-- static -->
+
+<!-- title -->
+{% block title %} Login {% endblock %}
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+
+<div class="text-white">
+  <div class="p-8 lg:p-18 text-center">
+    <h1 class="text-1xl lg:text-4xl underline">Login</h1>
+  </div>
+
+  <!-- form -->
+  <form action="." method="post" class="lg:w-1/4 px-4 mx-auto">
+    <!-- csrf token -->
+    {% csrf_token %}
+    <!-- csrf token -->
+    <div class="mb-5">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        class="w-full mt-2 px-4 py-2 rounded-md text-black"
+      />
+    </div>
+    <div class="mb-5">
+      <label for="password1">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="w-full mt-2 px-4 py-2 rounded-md text-black"
+      />
+    </div>
+
+    <!-- if -->
+    {% if form.errors %}
+    <!-- for -->
+    {% for field in form %}
+    <!-- for -->
+    {% for error in field.errors %}
+    <div class="w-full mt-2 px-4 py-2 rounded-md bg-red-300">
+      <p>{{ error|escape }}</p>
+    </div>
+    {% endfor %}
+    <!-- endfor -->
+    {% endfor %}
+    <!-- endfor -->
+    {% endif %}
+    <!-- endif -->
+
+    <div class="mb-5 mx-auto w-fit">
+      <button
+        type="submit"
+        class="px-3 py-2 rounded text-white hover:text-gray-200 bg-teal-800"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+  <!-- form -->
+</div>
+
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->

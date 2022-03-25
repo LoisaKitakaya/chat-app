@@ -15,12 +15,20 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <!-- local css -->
     <title>Chat | {% block title %} {% endblock %}</title>
+    <!--  -->
+    <style>
+      #chat-messages-container {
+        max-height: 400px;
+        overflow-y: auto;
+      }
+    </style>
+    <!--  -->
   </head>
   <body>
     <!-- navigation -->
     <nav class="flex items-center justify-between px-4 py-4 bg-teal-800">
       <div>
-        <a href="{% url 'home' %}" class="text-xl text-white font-semibold"
+        <a href="{% url 'home' %}" class="text-3xl text-white font-semibold"
           >Chat App</a
         >
       </div>
@@ -57,12 +65,11 @@
     </div>
     <!-- main body -->
 
-    <!-- footer -->
-    <!-- footer -->
-
-    <!-- messages -->
-    {% include 'messages.html' %}
-    <!-- messages -->
+    <!-- connection -->
+    {% block scripts %}
+    <!--  -->
+    {% endblock %}
+    <!-- connection -->
   </body>
   <!-- local js -->
   <script src="{% static 'js/main.js' %}"></script>

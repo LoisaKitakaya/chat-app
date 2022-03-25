@@ -68,7 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'chatrooms.context_processors.chat_rooms',
+                # 'chatrooms.context_processors.chat_rooms',
             ],
         },
     },
@@ -76,6 +76,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chat.wsgi.application'
 ASGI_APPLICATION = 'chat.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    }
+}
 
 
 # Database
@@ -139,5 +145,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CUSTOM SETTINGS
 
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/rooms/'
+LOGIN_REDIRECT_URL = '/chatrooms/rooms/'
 LOGIN_URL = '/log-in/'

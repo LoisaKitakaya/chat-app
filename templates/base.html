@@ -1,0 +1,41 @@
+<!-- static -->
+{% load static %}
+<!-- static -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- tailwind -->
+    <!-- local css -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <!-- local css -->
+    <title>Chat</title>
+  </head>
+  <body>
+    <!-- navigation -->
+    <!-- navigation -->
+
+    <!-- main body -->
+    <div class="main-body">
+      {% block body %}
+      <!--  -->
+      {% endblock %}
+    </div>
+    <!-- main body -->
+
+    <!-- footer -->
+    <!-- footer -->
+
+    <!-- messages -->
+    {% include 'messages.html' %}
+    <!-- messages -->
+  </body>
+  <!-- local js -->
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- local js -->
+</html>

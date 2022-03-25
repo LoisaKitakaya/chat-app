@@ -38,3 +38,7 @@ def rooms(request):
     context = {}
 
     return render(request, 'core/rooms.html', context)
+
+def about(request):
+
+    return render(request, 'core/about.html')
